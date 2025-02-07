@@ -1,4 +1,4 @@
-# Copilot AI-powered Teaching Assistant
+# MistralAI AI-powered Teaching Assistant
 
 ## Model
 
