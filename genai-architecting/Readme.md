@@ -1,4 +1,4 @@
-## Architectural Design and Considerations
+# Architectural Design and Considerations
 
 ## Requirements
 
