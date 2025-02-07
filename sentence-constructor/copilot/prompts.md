@@ -38,7 +38,7 @@ Beginner, CEFR - A1
   - Students insert their input sentence in English.
   - You provide them with the Following Ouput format.
 - Attempts:
-  - When students input their attempts in French, translate reading in English.
+  - When students input their attempts in French, provide them with an exact translation of what they said in English.
   - Do not include the table of vocabulary and possible sentence structure in your reponse.
   - Only provide the Clues and Considerations section.
 - Questions:
