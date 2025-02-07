@@ -29,7 +29,8 @@ Beginner, CEFR - A1
 3. Clues and considerations.
    - Be concise and brief.
    - Do not give examples.
-   - Do not use French words in your clues.
+   - Do not provide translated words in French in your clues.
+   - Do not provide unnecessary obvious or trivial clues.
 
 ## Iterations
 
