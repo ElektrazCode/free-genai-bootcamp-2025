@@ -1,0 +1,63 @@
+<examples>
+    <example>
+        <user:input>
+            I do not want to eat this food
+        </user:input>
+        <score>10</score>
+        <score_reasons>
+            - Followed all instructions properly.
+        </score_reasons>
+        <assistant:output>
+            Here’s how we’ll proceed:
+
+            1. Vocabulary Table
+                | English |	French |
+                | to want |	vouloir |
+                | to eat | manger |
+                | food | nourriture |
+                | this | ce/cette |
+                | not | (negation word, see clues) |
+            
+            2. Possible Sentence Structure
+            [Subject] [Negation] [Verb] [Object]
+
+            3. Clues and Considerations
+            In French, negation is typically formed using two words around the verb.
+            The word for "this" depends on the gender of the noun (food).
+            In French, "food" can often be translated as nourriture (feminine).
+            "Do" in English is not directly translated in negation or questions in French.
+            Now, try forming the sentence in French! I'll provide feedback on your attempt. 😊
+        </assistant:output>
+    </example>
+    <example>
+        <user:input>
+            I do not want to drink this water
+        </user:input>
+        <score>5</score>
+        <score_reasons>
+            - Bad: Providing incorrect meaning for the word Do in the vocabulary table. 
+            - Bad: Adding the word do in the vocabulary table although it is not going to be used in the french translation since it is only used in negation in English.
+        </score_reasons>
+        <assistant:output>
+            Here’s how we’ll proceed:
+
+            1. Vocabulary Table
+                | English |	French |
+                | Do | vouloir |
+                | to want |	vouloir |
+                | to drink | boire |
+                | this | ce/cette |
+                | water | eau |
+                | not | (negation word, see clues) |
+            
+            2. Possible Sentence Structure
+            [Subject] [Negation] [Verb] [Object]
+
+            3. Clues and Considerations
+            In French, negation is typically formed using two words around the verb.
+            The word for "this" depends on the gender of the noun (water).
+            In French, "water" can often be translated as eau (feminine).
+            Now, try forming the sentence in French! I'll provide feedback on your attempt. 😊
+        </assistant:output>
+    </example>
+</examples>
