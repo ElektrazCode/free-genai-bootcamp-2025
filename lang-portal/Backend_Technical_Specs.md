@@ -1,6 +1,6 @@
-# Backend Server Technical Sepcs
+# Backend Server Technical Specs
 
-## Business Goal:
+## Business Goal
 
 A language learning school wants to build a prototype of a learning portal which will act as three things:
 
