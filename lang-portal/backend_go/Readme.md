@@ -201,3 +201,51 @@ We will implement tasks for initializing, migrating, and seeding the database us
 		- mage init
 		- mage seed
 		- mage migrate
+
+# Missed Steps
+
+## 1. Generate data for the Seed File:
+
+### Prompt
+
+Could you please generate the top 100 beginner level french vocabulary words in json format like the following:
+{
+	french: french_word,
+	english: english_translation,
+	parts: part_of_speech,
+} 
+
+### Execution
+
+Check Words.json content for result.
+
+## 2. Complete the Implementation of the Seed Function
+
+### Explanation
+
+To complete the Seed function, you need to:
+
+	1. Read the seed data from the JSON files in the seeds folder.
+	2. Parse the JSON data.
+	3. Insert the parsed data into the appropriate tables in the SQLite database.
+
+### Execution 
+
+Check the MageFile.go file to see the content of the Seed() function.
+
+## 3. Complete the Implementation of the Migrate() Function
+
+### Explanation
+
+To complete the implementation of the Migrate function in the MageFile.go file, you need to add logic to run the migration scripts located in the migrations folder. These scripts will set up the database schema as specified in the Backend_Technical_Specs.md file.
+
+This updated Migrate function does the following:
+
+1. Ensures the database is initialized by calling the Init function.
+2. Retrieves the list of migration files from the migrations folder.
+3. Opens the SQLite database.
+4. Reads and executes each migration file in order.
+
+### Execution 
+
+Check the MageFile.go file to see the content of the Migrate() function.

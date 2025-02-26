@@ -4,12 +4,16 @@
 package main
 
 import (
+	"database/sql"
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"os"
 	"os/exec"
+	"path/filepath"
 
 	"github.com/magefile/mage/mg"
-	"github.com/magefile/mage/sh"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 // Default target to run when none is specified
@@ -21,25 +25,96 @@ func Init() error {
 	cmd := exec.Command("sh", "-c", "sqlite3 words.db < migrations/0001_init.sql")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
-	return cmd.Run()
+	if err := cmd.Run(); err != nil {
+		fmt.Printf("Error initializing database: %v\n", err)
+		return err
+	}
+	fmt.Println("Database initialized successfully.")
+	return nil
 }
 
 // Seed the database
 func Seed() error {
 	fmt.Println("Seeding database...")
-	// Example usage of sh package to run a shell command
-	if err := sh.Run("echo", "Seeding database..."); err != nil {
+
+	// Open the database
+	db, err := sql.Open("sqlite3", "words.db")
+	if err != nil {
+		fmt.Printf("Error opening database: %v\n", err)
 		return err
 	}
-	// Add seeding logic here
+	defer db.Close()
+
+	// Read the seed file
+	seedFile := filepath.Join("seeds", "words.json")
+	data, err := ioutil.ReadFile(seedFile)
+	if err != nil {
+		fmt.Printf("Error reading seed file: %v\n", err)
+		return err
+	}
+
+	// Parse the JSON data
+	var words []struct {
+		French  string `json:"french"`
+		English string `json:"english"`
+		Parts   string `json:"parts"`
+	}
+	if err := json.Unmarshal(data, &words); err != nil {
+		fmt.Printf("Error parsing JSON data: %v\n", err)
+		return err
+	}
+
+	// Insert the data into the database
+	for _, word := range words {
+		_, err := db.Exec("INSERT INTO words (french, english, parts) VALUES (?, ?, ?)", word.French, word.English, word.Parts)
+		if err != nil {
+			fmt.Printf("Error inserting data into database: %v\n", err)
+			return err
+		}
+	}
+
+	fmt.Println("Database seeded successfully.")
 	return nil
 }
 
 // Migrate the database
 func Migrate() error {
 	fmt.Println("Migrating database...")
-	// Example usage of mg package to run another Mage target
+
+	// Ensure the database is initialized
 	mg.Deps(Init)
-	// Add migration logic here
+
+	// Get the list of migration files
+	migrationFiles, err := filepath.Glob("migrations/*.sql")
+	if err != nil {
+		fmt.Printf("Error getting migration files: %v\n", err)
+		return err
+	}
+
+	// Open the database
+	db, err := sql.Open("sqlite3", "words.db")
+	if err != nil {
+		fmt.Printf("Error opening database: %v\n", err)
+		return err
+	}
+	defer db.Close()
+
+	// Execute each migration file
+	for _, file := range migrationFiles {
+		fmt.Printf("Running migration: %s\n", file)
+		content, err := ioutil.ReadFile(file)
+		if err != nil {
+			fmt.Printf("Error reading migration file: %v\n", err)
+			return err
+		}
+
+		_, err = db.Exec(string(content))
+		if err != nil {
+			fmt.Printf("Error executing migration file: %v\n", err)
+			return err
+		}
+	}
+
+	fmt.Println("Database migrated successfully.")
 	return nil
 }
