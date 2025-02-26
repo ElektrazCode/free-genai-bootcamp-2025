@@ -105,3 +105,12 @@ The import statements for Mage are disappearing because they are not being used 
             - sh.Run("echo", "Seeding database...");
         - In Migrate() add:
             - mg.Deps(Init)
+
+## 8. Running main.go: cannot open db Error
+
+### Explanation
+The name and directory of the database were not correct.
+
+### Solution
+	- Moved the database file into the database folder.
+	- Revised the MageFile.go and main.go files with correct database name and path.

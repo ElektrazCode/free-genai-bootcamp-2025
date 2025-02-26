@@ -11,6 +11,10 @@ var DB *sql.DB
 
 func InitDB(dataSourceName string) {
 	var err error
+	// Print the current working directory
+	log.Printf("Current working directory: %s", dataSourceName)
+
+	// Open the database
 	DB, err = sql.Open("sqlite3", dataSourceName)
 	if err != nil {
 		log.Fatal(err)

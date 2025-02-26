@@ -10,7 +10,7 @@ import (
 
 func main() {
 	// Initialize the database
-	dbPath := filepath.Join(".", "backend_go", "words.db")
+	dbPath := filepath.Join("database", "words.db")
 	database.InitDB(dbPath)
 
 	// Create a new Gin router

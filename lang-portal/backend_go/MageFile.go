@@ -22,7 +22,8 @@ var Default = Init
 // Initialize the database
 func Init() error {
 	fmt.Println("Initializing database...")
-	cmd := exec.Command("sh", "-c", "sqlite3 words.db < migrations/0001_init.sql")
+
+	cmd := exec.Command("sh", "-c", "sqlite3 database/words.db < migrations/0001_init.sql")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	if err := cmd.Run(); err != nil {
@@ -38,7 +39,8 @@ func Seed() error {
 	fmt.Println("Seeding database...")
 
 	// Open the database
-	db, err := sql.Open("sqlite3", "words.db")
+	dbFile := filepath.Join("database", "words.db")
+	db, err := sql.Open("sqlite3", dbFile)
 	if err != nil {
 		fmt.Printf("Error opening database: %v\n", err)
 		return err
@@ -92,7 +94,8 @@ func Migrate() error {
 	}
 
 	// Open the database
-	db, err := sql.Open("sqlite3", "words.db")
+	dbFile := filepath.Join("database", "words.db")
+	db, err := sql.Open("sqlite3", dbFile)
 	if err != nil {
 		fmt.Printf("Error opening database: %v\n", err)
 		return err
