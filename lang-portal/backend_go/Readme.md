@@ -1,10 +1,10 @@
-# Backend Building Steps with Copilot
+# Backend Building with Copilot
 
-## Prompt
+### Prompt
 
 I need to build an api backend for my lang portal app. It should be saved under the directory @backend_go. You will find all of the technical requirement specifications in the @Backend_Technical_Specs.md file. First, I would like you to give me a summary of what you plan to do. Once I agree to the plan, we will walk through every point in your plan, step by step. You will explain each step first then when I agree you can go ahead and execute it.
 
-## Plan Summary
+### Plan Summary
 
 1. Setup Project Structure
 	- Ensure the project structure is organized as specified.
@@ -42,9 +42,9 @@ I need to build an api backend for my lang portal app. It should be saved under 
 	- Write unit tests for the API endpoints.
 	- Ensure the API meets the specifications and works as expected.
 
-## Detailed Steps
+# Detailed Steps
 
-### Step 1: Setup Project Structure
+## Step 1: Setup Project Structure
 
 We will create the following directories and files:
 
@@ -65,7 +65,7 @@ We will create the following directories and files:
     - tasks/
         - tasks.go
 
-#### Explanation
+### Explanation
 
 - main.go: The entry point of the application.
 - database/database.go: Contains the database initialization and connection logic.
@@ -74,52 +74,52 @@ We will create the following directories and files:
 - seeds/: Contains the seed data files.
 - tasks/tasks.go: Contains the task runner logic for initializing, migrating, and seeding the database.
 
-#### Execution
+### Execution
 
-mkdir -p backend_go/database
-mkdir -p backend_go/handlers
-mkdir -p backend_go/migrations
-mkdir -p backend_go/seeds
-mkdir -p backend_go/tasks
+- mkdir -p backend_go/database
+- mkdir -p backend_go/handlers
+- mkdir -p backend_go/migrations
+- mkdir -p backend_go/seeds
+- mkdir -p backend_go/tasks
 
-touch backend_go/main.go
-touch backend_go/database/database.go
-touch backend_go/handlers/dashboard.go
-touch backend_go/handlers/activities.go
-touch backend_go/handlers/words.go
-touch backend_go/handlers/groups.go
-touch backend_go/handlers/sessions.go
-touch backend_go/migrations/0001_init.sql
-touch backend_go/seeds/words.json
-touch backend_go/tasks/tasks.go
+- touch backend_go/main.go
+- touch backend_go/database/database.go
+- touch backend_go/handlers/dashboard.go
+- touch backend_go/handlers/activities.go
+- touch backend_go/handlers/words.go
+- touch backend_go/handlers/groups.go
+- touch backend_go/handlers/sessions.go
+- touch backend_go/migrations/0001_init.sql
+- touch backend_go/seeds/words.json
+- touch backend_go/tasks/tasks.go
 
-### Step 2: Initialize Go Modules
+## Step 2: Initialize Go Modules
 
-#### Explanation
+### Explanation
 
 1. Initialize the Go module for dependency management: This will create a go.mod file to manage dependencies.
 2. Add required dependencies: We will add the necessary dependencies for the project, including Gin and SQLite3.
 
-#### Execution
+### Execution
 
-cd backend_go
-go mod init backend_go
-go get -u github.com/gin-gonic/gin
-go get -u github.com/mattn/go-sqlite3
+- cd backend_go
+- go mod init backend_go
+- go get -u github.com/gin-gonic/gin
+- go get -u github.com/mattn/- go-sqlite3
 
-### Step 3: Database Setup
+## Step 3: Database Setup
 
-#### Explanation
+### Explanation
 
 1. Implement database initialization: We will create a database.go file to handle the database connection and initialization.
 2. Create migration scripts: We will create a migration script 0001_init.sql to set up the database schema.
 
-#### Execution
+### Execution
 
 1. Create database.go (check file for content)
 2. Create 0001_init.sql (check file for content)
 
-#### Step 4: API Endpoints Implementation
+### Step 4: API Endpoints Implementation
 We will implement the following API endpoints in main.go and corresponding handler files:
 
 	- GET /api/dashboard/last_study_session
@@ -144,7 +144,7 @@ We will implement the following API endpoints in main.go and corresponding handl
 
 We will start by setting up the basic structure in main.go and then implement each handler function in the corresponding files.
 
-#### Execution
+### Execution
 
 1. Setup basic structure in main.go:
 	- Create the main.go file (Check file for content)
@@ -179,13 +179,13 @@ We will start by setting up the basic structure in main.go and then implement ea
 			- FullReset
 			- ReviewWord
 
-### Step 4: Task Runner Setup
+## Step 4: Task Runner Setup
 
-#### Explanation
+### Explanation
 
 We will implement tasks for initializing, migrating, and seeding the database using Mage, a task runner for Go.
 
-#### Execution
+### Execution
 
 1. Setup Mage:
 	- Install Mage if it is not already installed:
