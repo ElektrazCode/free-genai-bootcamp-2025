@@ -2,65 +2,63 @@
 package handlers
 
 import (
-    "backend_go/database"
-    "github.com/gin-gonic/gin"
-    "net/http"
+	"backend_go/database"
+	"backend_go/models"
+	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 func GetLastStudySession(c *gin.Context) {
-    var session struct {
-        ID        int    `json:"id"`
-        GroupID   int    `json:"group_id"`
-        CreatedAt string `json:"created_at"`
-    }
+	var session models.Session
 
-    err := database.DB.QueryRow("SELECT id, group_id, created_at FROM sessions ORDER BY created_at DESC LIMIT 1").Scan(&session.ID, &session.GroupID, &session.CreatedAt)
-    if err != nil {
-        c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-        return
-    }
+	err := database.DB.QueryRow("SELECT id, group_id, created_at FROM sessions ORDER BY created_at DESC LIMIT 1").Scan(&session.ID, &session.GroupID, &session.CreatedAt)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
 
-    c.JSON(http.StatusOK, session)
+	c.JSON(http.StatusOK, session)
 }
 
 func GetStudyProgress(c *gin.Context) {
-    var progress struct {
-        TotalSessions int `json:"total_sessions"`
-        TotalWords    int `json:"total_words"`
-    }
+	var progress struct {
+		TotalSessions int `json:"total_sessions"`
+		TotalWords    int `json:"total_words"`
+	}
 
-    err := database.DB.QueryRow("SELECT COUNT(*) FROM sessions").Scan(&progress.TotalSessions)
-    if err != nil {
-        c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-        return
-    }
+	err := database.DB.QueryRow("SELECT COUNT(*) FROM sessions").Scan(&progress.TotalSessions)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
 
-    err = database.DB.QueryRow("SELECT COUNT(*) FROM words").Scan(&progress.TotalWords)
-    if err != nil {
-        c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-        return
-    }
+	err = database.DB.QueryRow("SELECT COUNT(*) FROM words").Scan(&progress.TotalWords)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
 
-    c.JSON(http.StatusOK, progress)
+	c.JSON(http.StatusOK, progress)
 }
 
 func GetQuickStats(c *gin.Context) {
-    var stats struct {
-        TotalWords int `json:"total_words"`
-        TotalGroups int `json:"total_groups"`
-    }
+	var stats struct {
+		TotalWords  int `json:"total_words"`
+		TotalGroups int `json:"total_groups"`
+	}
 
-    err := database.DB.QueryRow("SELECT COUNT(*) FROM words").Scan(&stats.TotalWords)
-    if err != nil {
-        c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-        return
-    }
+	err := database.DB.QueryRow("SELECT COUNT(*) FROM words").Scan(&stats.TotalWords)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
 
-    err = database.DB.QueryRow("SELECT COUNT(*) FROM groups").Scan(&stats.TotalGroups)
-    if err != nil {
-        c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-        return
-    }
+	err = database.DB.QueryRow("SELECT COUNT(*) FROM groups").Scan(&stats.TotalGroups)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
 
-    c.JSON(http.StatusOK, stats)
+	c.JSON(http.StatusOK, stats)
 }

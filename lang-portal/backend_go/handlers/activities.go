@@ -3,6 +3,7 @@ package handlers
 
 import (
 	"backend_go/database"
+	"backend_go/models"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -16,20 +17,10 @@ func GetActivities(c *gin.Context) {
 	}
 	defer rows.Close()
 
-	var activities []struct {
-		ID        int    `json:"id"`
-		SessionID int    `json:"session_id"`
-		GroupID   int    `json:"group_id"`
-		CreatedAt string `json:"created_at"`
-	}
+	var activities []models.Activity
 
 	for rows.Next() {
-		var activity struct {
-			ID        int    `json:"id"`
-			SessionID int    `json:"session_id"`
-			GroupID   int    `json:"group_id"`
-			CreatedAt string `json:"created_at"`
-		}
+		var activity models.Activity
 		if err := rows.Scan(&activity.ID, &activity.SessionID, &activity.GroupID, &activity.CreatedAt); err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 			return
@@ -43,12 +34,7 @@ func GetActivities(c *gin.Context) {
 func GetActivityByID(c *gin.Context) {
 	id := c.Param("id")
 
-	var activity struct {
-		ID        int    `json:"id"`
-		SessionID int    `json:"session_id"`
-		GroupID   int    `json:"group_id"`
-		CreatedAt string `json:"created_at"`
-	}
+	var activity models.Activity
 
 	err := database.DB.QueryRow("SELECT id, session_id, group_id, created_at FROM activities WHERE id = ?", id).Scan(&activity.ID, &activity.SessionID, &activity.GroupID, &activity.CreatedAt)
 	if err != nil {
@@ -69,18 +55,10 @@ func GetActivitySessions(c *gin.Context) {
 	}
 	defer rows.Close()
 
-	var sessions []struct {
-		ID        int    `json:"id"`
-		GroupID   int    `json:"group_id"`
-		CreatedAt string `json:"created_at"`
-	}
+	var sessions []models.Session
 
 	for rows.Next() {
-		var session struct {
-			ID        int    `json:"id"`
-			GroupID   int    `json:"group_id"`
-			CreatedAt string `json:"created_at"`
-		}
+		var session models.Session
 		if err := rows.Scan(&session.ID, &session.GroupID, &session.CreatedAt); err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 			return
@@ -92,10 +70,7 @@ func GetActivitySessions(c *gin.Context) {
 }
 
 func CreateActivity(c *gin.Context) {
-	var activity struct {
-		SessionID int `json:"session_id"`
-		GroupID   int `json:"group_id"`
-	}
+	var activity models.Activity
 
 	if err := c.ShouldBindJSON(&activity); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
