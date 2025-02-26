@@ -28,7 +28,7 @@ Our database will be a single sqlite database called `words.db` that will be in 
   - id - integer
   - french - string
   - english - string
-  - parts - json
+  - parts - string
 - words_groups - many-to-many join table for words and groups
   - id - integer
   - word_id - integer

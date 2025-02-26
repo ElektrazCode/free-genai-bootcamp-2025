@@ -1,0 +1,617 @@
+[
+    {
+        "french": "bonjour",
+        "english": "hello",
+        "part_of_speech": "interjection"
+    },
+    {
+        "french": "merci",
+        "english": "thank you",
+        "part_of_speech": "interjection"
+    },
+    {
+        "french": "oui",
+        "english": "yes",
+        "part_of_speech": "adverb"
+    },
+    {
+        "french": "non",
+        "english": "no",
+        "part_of_speech": "adverb"
+    },
+    {
+        "french": "s'il vous plaît",
+        "english": "please",
+        "part_of_speech": "phrase"
+    },
+    {
+        "french": "excusez-moi",
+        "english": "excuse me",
+        "part_of_speech": "phrase"
+    },
+    {
+        "french": "pardon",
+        "english": "sorry",
+        "part_of_speech": "interjection"
+    },
+    {
+        "french": "je",
+        "english": "I",
+        "part_of_speech": "pronoun"
+    },
+    {
+        "french": "tu",
+        "english": "you (informal)",
+        "part_of_speech": "pronoun"
+    },
+    {
+        "french": "il",
+        "english": "he",
+        "part_of_speech": "pronoun"
+    },
+    {
+        "french": "elle",
+        "english": "she",
+        "part_of_speech": "pronoun"
+    },
+    {
+        "french": "nous",
+        "english": "we",
+        "part_of_speech": "pronoun"
+    },
+    {
+        "french": "vous",
+        "english": "you (formal/plural)",
+        "part_of_speech": "pronoun"
+    },
+    {
+        "french": "ils",
+        "english": "they (masculine)",
+        "part_of_speech": "pronoun"
+    },
+    {
+        "french": "elles",
+        "english": "they (feminine)",
+        "part_of_speech": "pronoun"
+    },
+    {
+        "french": "être",
+        "english": "to be",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "avoir",
+        "english": "to have",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "faire",
+        "english": "to do",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "aller",
+        "english": "to go",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "dire",
+        "english": "to say",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "pouvoir",
+        "english": "can",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "voir",
+        "english": "to see",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "venir",
+        "english": "to come",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "vouloir",
+        "english": "to want",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "prendre",
+        "english": "to take",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "manger",
+        "english": "to eat",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "boire",
+        "english": "to drink",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "parler",
+        "english": "to speak",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "écouter",
+        "english": "to listen",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "regarder",
+        "english": "to watch",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "aimer",
+        "english": "to like",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "détester",
+        "english": "to hate",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "lire",
+        "english": "to read",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "écrire",
+        "english": "to write",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "jouer",
+        "english": "to play",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "travailler",
+        "english": "to work",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "étudier",
+        "english": "to study",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "acheter",
+        "english": "to buy",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "vendre",
+        "english": "to sell",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "ouvrir",
+        "english": "to open",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "fermer",
+        "english": "to close",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "commencer",
+        "english": "to start",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "finir",
+        "english": "to finish",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "aider",
+        "english": "to help",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "attendre",
+        "english": "to wait",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "chercher",
+        "english": "to look for",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "trouver",
+        "english": "to find",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "donner",
+        "english": "to give",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "recevoir",
+        "english": "to receive",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "penser",
+        "english": "to think",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "croire",
+        "english": "to believe",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "savoir",
+        "english": "to know",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "connaître",
+        "english": "to know (someone)",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "comprendre",
+        "english": "to understand",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "apprendre",
+        "english": "to learn",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "enseigner",
+        "english": "to teach",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "vivre",
+        "english": "to live",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "mourir",
+        "english": "to die",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "naître",
+        "english": "to be born",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "aimer",
+        "english": "to love",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "détester",
+        "english": "to hate",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "se lever",
+        "english": "to get up",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "se coucher",
+        "english": "to go to bed",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "se laver",
+        "english": "to wash",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "se brosser",
+        "english": "to brush",
+        "part_of_speech": "verb"
+    },
+    {
+        "french": "chat",
+        "english": "cat",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "chien",
+        "english": "dog",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "maison",
+        "english": "house",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "voiture",
+        "english": "car",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "livre",
+        "english": "book",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "école",
+        "english": "school",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "ami",
+        "english": "friend",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "famille",
+        "english": "family",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "fleur",
+        "english": "flower",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "arbre",
+        "english": "tree",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "ville",
+        "english": "city",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "pays",
+        "english": "country",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "mer",
+        "english": "sea",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "montagne",
+        "english": "mountain",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "rivière",
+        "english": "river",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "soleil",
+        "english": "sun",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "lune",
+        "english": "moon",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "étoile",
+        "english": "star",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "ciel",
+        "english": "sky",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "nuage",
+        "english": "cloud",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "pluie",
+        "english": "rain",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "neige",
+        "english": "snow",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "vent",
+        "english": "wind",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "feu",
+        "english": "fire",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "eau",
+        "english": "water",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "terre",
+        "english": "earth",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "air",
+        "english": "air",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "nourriture",
+        "english": "food",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "boisson",
+        "english": "drink",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "pain",
+        "english": "bread",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "fromage",
+        "english": "cheese",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "fruit",
+        "english": "fruit",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "légume",
+        "english": "vegetable",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "viande",
+        "english": "meat",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "poisson",
+        "english": "fish",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "poulet",
+        "english": "chicken",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "gâteau",
+        "english": "cake",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "chocolat",
+        "english": "chocolate",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "bonbon",
+        "english": "candy",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "glace",
+        "english": "ice cream",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "café",
+        "english": "coffee",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "thé",
+        "english": "tea",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "lait",
+        "english": "milk",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "jus",
+        "english": "juice",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "vin",
+        "english": "wine",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "bière",
+        "english": "beer",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "eau minérale",
+        "english": "mineral water",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "ordinateur",
+        "english": "computer",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "téléphone",
+        "english": "phone",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "télévision",
+        "english": "television",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "radio",
+        "english": "radio",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "caméra",
+        "english": "camera",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "montre",
+        "english": "watch",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "bijou",
+        "english": "jewelry",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "vêtements",
+        "english": "clothes",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "chaussures",
+        "english": "shoes",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "chapeau",
+        "english": "hat",
+        "part_of_speech": "noun"
+    },
+    {
+        "french": "ceinture",
+        "english": "belt",
+        "part_of_speech": "noun"
+    }
+]
