@@ -3,10 +3,10 @@ package models
 import "time"
 
 type Activity struct {
-	ID        		int       `json:"id"`
-	Name	  		string    `json:"name"`
-	ThumbnailURL 	string    `json:"thumbnail_url"`
-	Description 	string    `json:"description"`
+	ID           int    `json:"id"`
+	Name         string `json:"name"`
+	ThumbnailURL string `json:"thumbnail_url"`
+	Description  string `json:"description"`
 }
 
 type Group struct {
@@ -14,11 +14,17 @@ type Group struct {
 	Name string `json:"name"`
 }
 
+type WordGroup struct {
+	WordID  int `json:"id"`
+	GroupID int `json:"group_id"`
+}
+
 type Session struct {
 	ID         int       `json:"id"`
+	ActivityID int       `json:"activity_id"`
 	GroupID    int       `json:"group_id"`
 	CreatedAt  time.Time `json:"created_at"`
-	ActivityID int       `json:"activity_id"`
+	EndedAt    time.Time `json:"ended_at"`
 }
 
 type Word struct {
@@ -29,8 +35,8 @@ type Word struct {
 }
 
 type WordReview struct {
-	WordID         int       `json:"word_id"`
-	StudySessionID int       `json:"study_session_id"`
-	Correct        bool      `json:"correct"`
-	CreatedAt      time.Time `json:"created_at"`
+	WordID    int       `json:"word_id"`
+	SessionID int       `json:"study_session_id"`
+	Correct   bool      `json:"correct"`
+	CreatedAt time.Time `json:"created_at"`
 }

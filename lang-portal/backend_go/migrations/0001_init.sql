@@ -18,14 +18,6 @@ CREATE TABLE IF NOT EXISTS words_groups (
     FOREIGN KEY (group_id) REFERENCES groups(id)
 );
 
-CREATE TABLE IF NOT EXISTS sessions (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    group_id INTEGER NOT NULL,
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    activity_id INTEGER NOT NULL,
-    FOREIGN KEY (group_id) REFERENCES groups(id)
-);
-
 CREATE TABLE IF NOT EXISTS activities (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
@@ -33,12 +25,21 @@ CREATE TABLE IF NOT EXISTS activities (
     description TEXT
 );
 
+CREATE TABLE IF NOT EXISTS sessions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    activity_id INTEGER NOT NULL,
+    group_id INTEGER NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    ended_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (group_id) REFERENCES groups(id)
+);
+
 CREATE TABLE IF NOT EXISTS review_words (
     word_id INTEGER NOT NULL,
     session_id INTEGER NOT NULL,
     correct BOOLEAN NOT NULL,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (word_id, study_session_id),
+    PRIMARY KEY (word_id, session_id),
     FOREIGN KEY (word_id) REFERENCES words(id),
     FOREIGN KEY (session_id) REFERENCES sessions(id)
 );

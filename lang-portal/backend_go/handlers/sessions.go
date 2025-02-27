@@ -10,7 +10,7 @@ import (
 )
 
 func GetSessions(c *gin.Context) {
-	rows, err := database.DB.Query("SELECT id, group_id, created_at, activity_id FROM sessions")
+	rows, err := database.DB.Query("SELECT id, activity_id, group_id, created_at, ended_at FROM sessions")
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
@@ -21,7 +21,7 @@ func GetSessions(c *gin.Context) {
 
 	for rows.Next() {
 		var session models.Session
-		if err := rows.Scan(&session.ID, &session.GroupID, &session.CreatedAt, &session.ActivityID); err != nil {
+		if err := rows.Scan(&session.ID, &session.ActivityID, &session.GroupID, &session.CreatedAt, &session.EndedAt); err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 			return
 		}
@@ -36,7 +36,7 @@ func GetSessionByID(c *gin.Context) {
 
 	var session models.Session
 
-	err := database.DB.QueryRow("SELECT id, group_id, created_at, activity_id FROM sessions WHERE id = ?", id).Scan(&session.ID, &session.GroupID, &session.CreatedAt, &session.ActivityID)
+	err := database.DB.QueryRow("SELECT id, activity_id, group_id, created_at, ended_at FROM sessions WHERE id = ?", id).Scan(&session.ID, &session.ActivityID, &session.GroupID, &session.CreatedAt, &session.EndedAt)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return

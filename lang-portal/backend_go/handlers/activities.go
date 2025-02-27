@@ -10,7 +10,7 @@ import (
 )
 
 func GetActivities(c *gin.Context) {
-	rows, err := database.DB.Query("SELECT id, session_id, group_id, created_at FROM activities")
+	rows, err := database.DB.Query("SELECT id, name, thumbnail_url, description FROM activities")
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
@@ -36,7 +36,7 @@ func GetActivityByID(c *gin.Context) {
 
 	var activity models.Activity
 
-	err := database.DB.QueryRow("SELECT id, name, thumbnailUrl, description FROM activities WHERE id = ?", id).Scan(&activity.ID, &activity.Name, &activity.ThumbnailURL, &activity.Description)
+	err := database.DB.QueryRow("SELECT id, name, thumbnail_url, description FROM activities WHERE id = ?", id).Scan(&activity.ID, &activity.Name, &activity.ThumbnailURL, &activity.Description)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return

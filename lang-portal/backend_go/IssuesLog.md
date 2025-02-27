@@ -116,15 +116,57 @@ The name and directory of the database were not correct.
 	- Revised the MageFile.go and main.go files with correct database name and path.
 
 ## 9. Problems> package main not found in MageFile.go
-	1. Restart Visual Studio Code
-	2. Update gopls
-		- go install golang.org/x/tools/gopls@latest
-	3. Check golps Configuration:
-		- Open Command Palette
-		- Preferences: Open Settings (JSON)
-		- Add the following line:
-			- "go.languageServerFlags": [
-        	"-tags=mage"
-    		]
-	4. Clear Language Server Cache:
-		- rm -rf ~/.cache/go-build
+1. Restart Visual Studio Code
+2. Update gopls
+	- go install golang.org/x/tools/gopls@latest
+3. Check golps Configuration:
+	- Open Command Palette
+	- Preferences: Open User Settings (JSON)
+	- Add the following line:
+	```sh
+		"go.languageServerFlags": [
+        "-tags=mage"
+    	]
+	```
+4. Clear Language Server Cache:
+	```sh
+		rm -rf ~/.cache/go-build
+	```
+
+## 10. gopls server fails to initilize as I open main.go
+1. Ensure Go is intalled correctly
+```sh
+	go version
+	go env
+```
+2. Install or update gopls
+```sh
+	go install golang.org/x/tools/gopls@latest
+```
+3. Check the settings.json file for Go's correct configuration
+```sh
+{
+  	"go.useLanguageServer": true,
+  	"go.gopath": "/usr/local/go/bin",
+  	"go.languageServerFlags": [
+    	"-rpc.trace",
+    	"-tags=mage"
+  	]
+}
+```
+
+4. Had to remove `-tags=mage` for it to work.
+5. Also had some deprecated values that needed to be changed for the settings to function properly.
+
+## 11. Packages were not recognized
+1. Changed go.gopath to ~/go/bin
+2. Changed PATH variable in ~/.bashrc & ~/.profile to match
+```sh
+	export PATH=$PATH:$HOME/go/bin
+```
+3. Add this to the user settings.json file: 
+```sh  
+  "go.toolsEnvVars": {
+    "GOFLAGS": "-tags=mage"
+  }
+```
