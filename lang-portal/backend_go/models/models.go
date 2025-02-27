@@ -15,7 +15,7 @@ type Group struct {
 }
 
 type WordGroup struct {
-	WordID  int `json:"id"`
+	WordID  int `json:"word_id"`
 	GroupID int `json:"group_id"`
 }
 
@@ -36,7 +36,7 @@ type Word struct {
 
 type WordReview struct {
 	WordID    int       `json:"word_id"`
-	SessionID int       `json:"study_session_id"`
+	SessionID int       `json:"session_id"`
 	Correct   bool      `json:"correct"`
 	CreatedAt time.Time `json:"created_at"`
 }

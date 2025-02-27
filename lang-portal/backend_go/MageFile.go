@@ -4,6 +4,7 @@
 package main
 
 import (
+	"backend_go/models"
 	"database/sql"
 	"encoding/json"
 	"fmt"
@@ -88,11 +89,8 @@ func seedWords(db *sql.DB) error {
 		return err
 	}
 
-	var words []struct {
-		French  string `json:"french"`
-		English string `json:"english"`
-		Parts   string `json:"parts"`
-	}
+	var words []models.Word
+
 	if err := json.Unmarshal(data, &words); err != nil {
 		fmt.Printf("Error parsing JSON data: %v\n", err)
 		return err
@@ -116,9 +114,8 @@ func seedGroups(db *sql.DB) error {
 		return err
 	}
 
-	var groups []struct {
-		Name string `json:"name"`
-	}
+	var groups []models.Group
+
 	if err := json.Unmarshal(data, &groups); err != nil {
 		fmt.Printf("Error parsing JSON data: %v\n", err)
 		return err
@@ -154,10 +151,8 @@ func seedWordsGroups(db *sql.DB) error {
 		return err
 	}
 
-	var wordsGroups []struct {
-		WordID  int `json:"word_id"`
-		GroupID int `json:"group_id"`
-	}
+	var wordsGroups []models.WordGroup
+
 	if err := json.Unmarshal(data, &wordsGroups); err != nil {
 		fmt.Printf("Error parsing JSON data: %v\n", err)
 		return err
@@ -181,11 +176,8 @@ func seedActivities(db *sql.DB) error {
 		return err
 	}
 
-	var activities []struct {
-		Name         string `json:"name"`
-		ThumbnailURL string `json:"thumbnail_url"`
-		Description  string `json:"description"`
-	}
+	var activities []models.Activity
+
 	if err := json.Unmarshal(data, &activities); err != nil {
 		fmt.Printf("Error parsing JSON data: %v\n", err)
 		return err
@@ -209,12 +201,8 @@ func seedSessions(db *sql.DB) error {
 		return err
 	}
 
-	var sessions []struct {
-		ActivityID int    `json:"activity_id"`
-		GroupID    int    `json:"group_id"`
-		CreatedAt  string `json:"created_at"`
-		EndedAt    string `json:"ended_at"`
-	}
+	var sessions []models.Session
+
 	if err := json.Unmarshal(data, &sessions); err != nil {
 		fmt.Printf("Error parsing JSON data: %v\n", err)
 		return err
@@ -238,12 +226,8 @@ func wordReview(db *sql.DB) error {
 		return err
 	}
 
-	var wordReviews []struct {
-		WordID    int    `json:"word_id"`
-		SessionID int    `json:"session_id"`
-		Correct   bool   `json:"correct"`
-		CreatedAt string `json:"created_at"`
-	}
+	var wordReviews []models.WordReview
+
 	if err := json.Unmarshal(data, &wordReviews); err != nil {
 		fmt.Printf("Error parsing JSON data: %v\n", err)
 		return err
