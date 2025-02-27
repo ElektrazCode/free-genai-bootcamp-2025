@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Flashcards",
+        "description": "A set of flashcards to help you learn vocabulary."
+    },
+    {
+        "name": "MCQs",
+        "description": "Some multiple choice questions to test your knowledge."
+    },
+    {
+        "name": "Matching Game",
+        "description": "Match the words with their pictures."
+    }
+]

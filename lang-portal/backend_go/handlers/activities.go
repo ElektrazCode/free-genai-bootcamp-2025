@@ -21,7 +21,7 @@ func GetActivities(c *gin.Context) {
 
 	for rows.Next() {
 		var activity models.Activity
-		if err := rows.Scan(&activity.ID, &activity.SessionID, &activity.GroupID, &activity.CreatedAt); err != nil {
+		if err := rows.Scan(&activity.ID, &activity.Name, &activity.ThumbnailURL, &activity.Description); err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 			return
 		}
@@ -36,7 +36,7 @@ func GetActivityByID(c *gin.Context) {
 
 	var activity models.Activity
 
-	err := database.DB.QueryRow("SELECT id, session_id, group_id, created_at FROM activities WHERE id = ?", id).Scan(&activity.ID, &activity.SessionID, &activity.GroupID, &activity.CreatedAt)
+	err := database.DB.QueryRow("SELECT id, name, thumbnailUrl, description FROM activities WHERE id = ?", id).Scan(&activity.ID, &activity.Name, &activity.ThumbnailURL, &activity.Description)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
@@ -77,7 +77,7 @@ func CreateActivity(c *gin.Context) {
 		return
 	}
 
-	result, err := database.DB.Exec("INSERT INTO activities (session_id, group_id) VALUES (?, ?)", activity.SessionID, activity.GroupID)
+	result, err := database.DB.Exec("INSERT INTO activities (name, thumbnail_url, description) VALUES (?, ?, ?)", activity.Name, activity.ThumbnailURL, activity.Description)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return

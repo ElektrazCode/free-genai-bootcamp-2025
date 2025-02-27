@@ -3,10 +3,10 @@ package models
 import "time"
 
 type Activity struct {
-	ID        int       `json:"id"`
-	SessionID int       `json:"session_id"`
-	GroupID   int       `json:"group_id"`
-	CreatedAt time.Time `json:"created_at"`
+	ID        		int       `json:"id"`
+	Name	  		string    `json:"name"`
+	ThumbnailURL 	string    `json:"thumbnail_url"`
+	Description 	string    `json:"description"`
 }
 
 type Group struct {
