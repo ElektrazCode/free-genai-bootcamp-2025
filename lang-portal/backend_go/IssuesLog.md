@@ -114,3 +114,17 @@ The name and directory of the database were not correct.
 ### Solution
 	- Moved the database file into the database folder.
 	- Revised the MageFile.go and main.go files with correct database name and path.
+
+## 9. Problems> package main not found in MageFile.go
+	1. Restart Visual Studio Code
+	2. Update gopls
+		- go install golang.org/x/tools/gopls@latest
+	3. Check golps Configuration:
+		- Open Command Palette
+		- Preferences: Open Settings (JSON)
+		- Add the following line:
+			- "go.languageServerFlags": [
+        	"-tags=mage"
+    		]
+	4. Clear Language Server Cache:
+		- rm -rf ~/.cache/go-build

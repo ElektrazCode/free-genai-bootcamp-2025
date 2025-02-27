@@ -67,15 +67,15 @@ We will create the following directories and files:
 
 ### Explanation
 
-- main.go: The entry point of the application.
-- database/database.go: Contains the database initialization and connection logic.
-- handlers/: Contains the handler functions for the API endpoints.
-- migrations/: Contains the SQL migration files to set up the database schema.
-- seeds/: Contains the seed data files.
-- tasks/tasks.go: Contains the task runner logic for initializing, migrating, and seeding the database.
+- `main.go`: The entry point of the application.
+- `database/database.go`: Contains the database initialization and connection logic.
+- `handlers/`: Contains the handler functions for the API endpoints.
+- `migrations/`: Contains the SQL migration files to set up the database schema.
+- `seeds/`: Contains the seed data files.
+- `tasks/tasks.go`: Contains the task runner logic for initializing, migrating, and seeding the database.
 
 ### Execution
-
+```sh
 - mkdir -p backend_go/database
 - mkdir -p backend_go/handlers
 - mkdir -p backend_go/migrations
@@ -92,6 +92,7 @@ We will create the following directories and files:
 - touch backend_go/migrations/0001_init.sql
 - touch backend_go/seeds/words.json
 - touch backend_go/tasks/tasks.go
+```
 
 ## Step 2: Initialize Go Modules
 
@@ -101,11 +102,12 @@ We will create the following directories and files:
 2. Add required dependencies: We will add the necessary dependencies for the project, including Gin and SQLite3.
 
 ### Execution
-
+```sh
 - cd backend_go
 - go mod init backend_go
 - go get -u github.com/gin-gonic/gin
 - go get -u github.com/mattn/- go-sqlite3
+```
 
 ## Step 3: Database Setup
 
@@ -121,7 +123,7 @@ We will create the following directories and files:
 
 ### Step 4: API Endpoints Implementation
 We will implement the following API endpoints in main.go and corresponding handler files:
-
+```sh
 	- GET /api/dashboard/last_study_session
 	- GET /api/dashboard/study_progress
 	- GET /api/dashboard/quick-stats
@@ -141,7 +143,7 @@ We will implement the following API endpoints in main.go and corresponding handl
 	- POST /api/reset_history
 	- POST /api/full_reset
 	- POST /api/sessions/:id/words/:word_id/review
-
+```
 We will start by setting up the basic structure in main.go and then implement each handler function in the corresponding files.
 
 ### Execution
@@ -190,17 +192,21 @@ We will implement tasks for initializing, migrating, and seeding the database us
 1. Setup Mage:
 	- Install Mage if it is not already installed:
 		- if says "no required module provide package"
-		- go get github.com/magefile/mage
+		```sh
+			go get github.com/magefile/mage
+		```
 
 2. Create Magefile:
 	- Create a Magefile.go in the tasks directory (Check file for content).
 
 3. Run Mage tasks:
 	- Run the Mage tasks to initialize and seed the database:
+	```sh
 		- cd backend_go
 		- mage init
 		- mage seed
 		- mage migrate
+	```
 
 # Missed Steps
 
@@ -209,12 +215,13 @@ We will implement tasks for initializing, migrating, and seeding the database us
 ### Prompt
 
 Could you please generate the top 100 beginner level french vocabulary words in json format like the following:
+```sh
 {
 	french: french_word,
 	english: english_translation,
 	parts: part_of_speech,
 } 
-
+```
 ### Execution
 
 Check Words.json content for result.
@@ -225,19 +232,20 @@ Check Words.json content for result.
 
 To complete the Seed function, you need to:
 
-	1. Read the seed data from the JSON files in the seeds folder.
-	2. Parse the JSON data.
-	3. Insert the parsed data into the appropriate tables in the SQLite database.
+1. Read the seed data from the JSON files in the seeds folder.
+2. Parse the JSON data.
+3. Insert the parsed data into the appropriate tables in the SQLite database.
+
 
 ### Execution 
 
-Check the MageFile.go file to see the content of the Seed() function.
+Check the `MageFile.go` file to see the content of the `Seed()` function.
 
 ## 3. Complete the Implementation of the Migrate() Function
 
 ### Explanation
 
-To complete the implementation of the Migrate function in the MageFile.go file, you need to add logic to run the migration scripts located in the migrations folder. These scripts will set up the database schema as specified in the Backend_Technical_Specs.md file.
+To complete the implementation of the Migrate function in the `MageFile.go` file, you need to add logic to run the migration scripts located in the migrations folder. These scripts will set up the database schema as specified in the `Backend_Technical_Specs.md` file.
 
 This updated Migrate function does the following:
 
@@ -248,11 +256,11 @@ This updated Migrate function does the following:
 
 ### Execution 
 
-Check the MageFile.go file to see the content of the Migrate() function.
+Check the `MageFile.go` file to see the content of the `Migrate()` function.
 
 # Suggested Optimizations
 
-The project appears to be well-structured and includes the necessary files and directories as outlined in the Readme.md and Backend_Technical_Specs.md. However, there are a few potential areas that might need attention:
+The project appears to be well-structured and includes the necessary files and directories as outlined in the `Readme.md` and `Backend_Technical_Specs.md`. However, there are a few potential areas that might need attention:
 
 #### Unit Tests:
 There are no unit tests mentioned or included in the provided files. Adding unit tests for the API endpoints would be beneficial to ensure the API meets the specifications and works as expected.
