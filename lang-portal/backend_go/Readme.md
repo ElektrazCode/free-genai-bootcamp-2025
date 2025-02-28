@@ -285,3 +285,40 @@ The API endpoints for listing resources (e.g., /api/words, /api/groups) should s
 
 #### Performance Optimization:
 Review the database queries and application logic for any potential performance bottlenecks.
+
+# Testing
+
+## Postman Extension in VSCode
+I used the Postman extension to manually test all of the api endpoints.
+
+For the time being, I still need to work out the logic for the dashboard and the word review. Otherwise, all of the apis were tested successfully.
+
+## Using Copilot to generate Unit Tests
+
+### Prompt
+I would like to add unit tests in the directory tests/apis to test all of the api endpoints. You will find all api handlers in the backend_go/handlers directory. Could you walk me through each step? Explain to me what needs to be done, then after I approve you can go ahead and implement it.
+
+### Response
+1. Create a new directory for tests: We'll create a new directory named `tests/apis` inside the `backend_go` directory to store our test files.
+
+2. Set up the test environment: We'll need to set up a test environment using the testing package in Go. This includes initializing a test database and creating a test router.
+- Created the File `api_test.go`
+	- This file sets up the test environment by initializing a test database and creating a test router with all the routes defined.
+- Install testify
+```sh
+	go get github.com/stretchr/testify/assert
+```
+
+3. Write test cases for each endpoint: For each API endpoint, we'll write test cases to verify the expected behavior. This includes sending HTTP requests to the endpoints and checking the responses.
+
+4. Run the tests: Finally, we'll run the tests to ensure everything is working as expected.
+
+# Missed Steps
+
+- Create the test_database, sample data, function to insert the sample data into the test_database.
+
+- The tables were not matching the schema. I had to manually revise the insert queries to use the correct columns.
+
+- Only 2 test cases were created for 2 endpoints. I had to ask for the remaining test cases to be done.
+
+- The output was not clear I had to add some print lines to get more information about the reponse of each request.

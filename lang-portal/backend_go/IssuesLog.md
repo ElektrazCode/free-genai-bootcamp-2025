@@ -170,3 +170,13 @@ The name and directory of the database were not correct.
     "GOFLAGS": "-tags=mage"
   }
 ```
+
+## 12. Testing DB Errors
+
+### Explanation
+The test_database would not show up in the File Explorer when created. When running the test a second time, it would throw an error because of a unique key violation.
+
+### Solution
+- Restart VSCode.
+- test_database would appear.
+- delete test_database between test runs.

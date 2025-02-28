@@ -24,3 +24,7 @@ func InitDB(dataSourceName string) {
 		log.Fatal(err)
 	}
 }
+
+func GetDB() *sql.DB {
+	return DB
+}
