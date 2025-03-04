@@ -6,41 +6,45 @@ I need to build an api backend for my lang portal app. It should be saved under 
 
 ### Plan Summary
 
-1. Setup Project Structure
-	- Ensure the project structure is organized as specified.
-	- Create necessary directories and files.
-2. Initialize Go Modules
-	- Initialize the Go module for dependency management.
-	- Add required dependencies (Gin, SQLite3).
-3. Database Setup
-	- Implement database initialization in database/database.go.
-	- Create migration scripts to set up the database schema in migrations/0001_init.sql.
-4. API Endpoints Implementation
-	- Implement the following API endpoints in main.go and corresponding handler files:
-		- GET /api/dashboard/last_study_session
-		- GET /api/dashboard/study_progress
-		- GET /api/dashboard/quick-stats
-		- GET /api/activities
-		- GET /api/activities/:id
-		- GET /api/activities/:id/sessions
-		- POST /api/activities
-		- GET /api/words
-		- GET /api/words/:id
-		- GET /api/groups
-		- GET /api/groups/:id
-		- GET /api/groups/:id/words
-		- GET /api/groups/:id/sessions
-		- GET /api/sessions
-		- GET /api/sessions/:id
-		- GET /api/sessions/:id/words
-		- POST /api/reset_history
-		- POST /api/full_reset
-		- POST /api/sessions/:id/words/:word_id/review
-5. Task Runner Setup
-	- Implement tasks for initializing, migrating, and seeding the database.
-6. Testing
-	- Write unit tests for the API endpoints.
-	- Ensure the API meets the specifications and works as expected.
+#### 1. Setup Project Structure
+- Ensure the project structure is organized as specified.
+- Create necessary directories and files.
+
+#### 2. Initialize Go Modules
+- Initialize the Go module for dependency management.
+- Add required dependencies (Gin, SQLite3).
+
+#### 3. Database Setup
+- Implement database initialization in database/database.go.
+- Create migration scripts to set up the database schema in migrations/0001_init.sql.
+#### 4. API Endpoints Implementation
+- Implement the following API endpoints in main.go and corresponding handler files:
+```text
+	- GET /api/dashboard/last_study_session
+	- GET /api/dashboard/study_progress
+	- GET /api/dashboard/quick-stats
+	- GET /api/activities
+	- GET /api/activities/:id
+	- GET /api/activities/:id/sessions
+	- POST /api/activities
+	- GET /api/words
+	- GET /api/words/:id
+	- GET /api/groups
+	- GET /api/groups/:id
+	- GET /api/groups/:id/words
+	- GET /api/groups/:id/sessions
+	- GET /api/sessions
+	- GET /api/sessions/:id
+	- GET /api/sessions/:id/words
+	- POST /api/reset_history
+	- POST /api/full_reset
+	- POST /api/sessions/:id/words/:word_id/review
+```
+#### 5. Task Runner Setup
+- Implement tasks for initializing, migrating, and seeding the database.
+#### 6. Testing
+- Write unit tests for the API endpoints.
+- Ensure the API meets the specifications and works as expected.
 
 # Detailed Steps
 

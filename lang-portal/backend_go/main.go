@@ -5,6 +5,7 @@ import (
 	"backend_go/handlers"
 	"path/filepath"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -15,6 +16,12 @@ func main() {
 
 	// Create a new Gin router
 	r := gin.Default()
+
+	// Configure CORS middleware
+	r.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"*"},
+		AllowCredentials: true,
+	}))
 
 	// Define routes
 	r.GET("/api/dashboard/last_study_session", handlers.GetLastStudySession)
