@@ -15,8 +15,8 @@ We are building a langauge learning web-app which serves the following purposes:
 - React router as the router library
 - Tailwind CSS as the css framework
 - Vite.js as the local development server
-- Typescript for the programming language
-- ShadCN for components
+- TypeScript for the programming language
+- ShadCN for UI components
 - There will be no authentication/authorization
 - The app will serve a single user
 
